@@ -22,21 +22,13 @@ describe('Unit test with CommentBox', () => {
   });
 
   it('has a textinput that users can type in', () => {
-    wrapped
-      .find('[testID="comment-box-textinput"]')
-      .first()
-      .prop('onChangeText')('new comment');
+    const wrappedTextInput = () =>
+      wrapped.find('[testID="comment-box-textinput"]').first();
 
-    wrapped
-      .find('[testID="comment-box-textinput"]')
-      .first()
-      .update();
+    wrappedTextInput().prop('onChangeText')('new comment');
 
-    expect(
-      wrapped
-        .find('[testID="comment-box-textinput"]')
-        .first()
-        .prop('value'),
-    ).toEqual('new comment');
+    wrappedTextInput().update();
+
+    expect(wrappedTextInput().prop('value')).toEqual('new comment');
   });
 });
