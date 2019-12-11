@@ -30,3 +30,7 @@ copyProps(window, global);
  * and inspect the DOM in tests.
  */
 Enzyme.configure({adapter: new Adapter()});
+/* eslint-disable no-console */
+const originalConsoleError = console.error;
+console.error = (message, ...args) =>
+  !message.startsWith('Warning: ') && originalConsoleError(message, ...args);

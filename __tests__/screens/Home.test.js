@@ -14,7 +14,8 @@ afterEach(() => {
 });
 
 describe('Unit test', () => {
-  it('has textinput and button', () => {
-    expect(wrapped.find('textInput').length).toEqual(1);
+  it('has TextInput and Button', () => {
+    expect(wrapped.find('Button').length).toEqual(1);
+    // expect(wrapped.find('TextInput').length).toEqual(1);
   });
 });
