@@ -7,9 +7,10 @@ const CommentBox = () => {
   const handleSubmit = () => {};
 
   return (
-    <View testId="comment-box">
+    <View testID="comment-box">
       <Text>Comments</Text>
       <TextInput
+        testID="comment-box-textinput"
         multiline={true}
         numberOfLines={4}
         onChangeText={text => setComment(text)}
