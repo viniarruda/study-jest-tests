@@ -2,12 +2,18 @@ import React from 'react';
 import {mount} from 'enzyme';
 
 import CommentBox from '../../src/screens/components/CommentBox';
+import Root from '../../src/Root';
 
 describe('Unit test with CommentBox', () => {
   let wrapped;
 
   beforeEach(() => {
-    wrapped = mount(<CommentBox />);
+    wrapped = mount(
+      <Root>
+        <CommentBox />
+      </Root>,
+    );
+    debugger;
   });
 
   afterEach(() => {

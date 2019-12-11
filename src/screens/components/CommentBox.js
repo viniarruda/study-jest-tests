@@ -1,10 +1,16 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
+import {connect} from 'react-redux';
+import * as actions from '../../store/comments/actions';
 
 const CommentBox = () => {
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState('');
 
-  const handleSubmit = () => {};
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    setComment('');
+  };
 
   return (
     <View testID="comment-box">
@@ -22,4 +28,7 @@ const CommentBox = () => {
   );
 };
 
-export default CommentBox;
+export default connect(
+  null,
+  actions,
+)(CommentBox);
