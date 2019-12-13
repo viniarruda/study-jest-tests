@@ -28,4 +28,10 @@ describe('Implementation test redux', () => {
 
     expect(newState).toEqual({list: ['New Comment']});
   });
+
+  it('handles action with unknown type', () => {
+    const newState = commentsReducer({}, {type: 'ASDADSADAA'});
+
+    expect(newState).toEqual({list: []});
+  });
 });
