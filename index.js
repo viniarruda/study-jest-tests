@@ -7,8 +7,10 @@ import App from './App';
 import {name as appName} from './app.json';
 import Root from './src/Root';
 
-AppRegistry.registerComponent(appName, () => (
+const Application = () => (
   <Root>
     <App />
   </Root>
-));
+);
+
+AppRegistry.registerComponent(appName, () => Application);
