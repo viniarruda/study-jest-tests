@@ -24,13 +24,13 @@ describe('Implementation test redux', () => {
       payload: 'New Comment',
     };
 
-    const newState = commentsReducer({}, action);
+    const newState = commentsReducer({list: []}, action);
 
     expect(newState).toEqual({list: ['New Comment']});
   });
 
   it('handles action with unknown type', () => {
-    const newState = commentsReducer({}, {type: 'ASDADSADAA'});
+    const newState = commentsReducer({list: []}, {type: 'ASDADSADAA'});
 
     expect(newState).toEqual({list: []});
   });

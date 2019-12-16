@@ -9,10 +9,10 @@ export default function(state = INITIAL_STATE, action) {
     case SAVE_COMMENT:
       return {
         ...state,
-        list: [action.payload],
+        list: [...state.list, action.payload],
       };
 
     default:
-      return INITIAL_STATE;
+      return state;
   }
 }
