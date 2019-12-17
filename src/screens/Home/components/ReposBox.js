@@ -33,8 +33,11 @@ const CommentBox = () => {
         onChangeText={text => setUsername(text)}
         value={username}
       />
-      {console.log('loading', loading)}
-      <DefaultButton onPress={handleSubmit} title="Add comment" />
+      <DefaultButton
+        testID="btn-search-user"
+        onPress={handleSubmit}
+        title="Search user"
+      />
       {loading && list.length ? <Title>Loading...</Title> : <CommentList />}
     </Container>
   );

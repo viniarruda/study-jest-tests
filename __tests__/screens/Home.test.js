@@ -21,7 +21,7 @@ describe('Unit test with CommentBox', () => {
   });
 
   it('has TextInput and Button', () => {
-    expect(wrapped.find('Button').length).toEqual(1);
+    expect(wrapped.find('[testID="btn-search-user"]').length).toEqual(1);
     expect(
       wrapped.find('[testID="comment-box-textinput"]').first().length,
     ).toEqual(1);

@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 // import TestRenderer from 'react-test-renderer';
 
-import CommentList from '../../src/screens/Home/components/ReposList';
+import ReposList from '../../src/screens/Home/components/ReposList';
 import Root from '../../src/Root';
 
 // function findById(tree, testID) {
@@ -20,28 +20,52 @@ import Root from '../../src/Root';
 //   }
 // }
 
-describe('CommentList component', () => {
+describe('ReposList component', () => {
   let wrapped;
 
   beforeEach(() => {
     const initialState = {
-      comments: {list: ['Comment 1', 'Comment 2']},
+      repos: {
+        list: [
+          {
+            id: 1,
+            name: 'repo 1',
+            owner: {
+              avatar_url:
+                'https://avatars0.githubusercontent.com/u/19275982?v=4',
+            },
+          },
+          {
+            id: 2,
+            name: 'repo 2',
+            owner: {
+              avatar_url:
+                'https://avatars0.githubusercontent.com/u/19275982?v=4',
+            },
+          },
+        ],
+        loading: false,
+        error: null,
+      },
     };
 
     wrapped = mount(
       <Root initialState={initialState}>
-        <CommentList />
+        <ReposList />
       </Root>,
     );
   });
 
-  it('create comment item based in data', () => {
+  it('create repo item based in data', () => {
     //  console.log(wrapped.render().text()); // This return only the text, independ quantity render component
 
-    expect(wrapped.find('[testID="repos-list-item-1"]').text()).toEqual(
-      'Comment 2',
-    );
-    expect(wrapped.render().text()).toContain('Comment 1');
-    expect(wrapped.render().text()).toContain('Comment 2');
+    expect(
+      wrapped
+        .find('[testID="repos-list-item-1"]')
+        .at(0)
+        .text(),
+    ).toEqual('repo 1');
+    expect(wrapped.render().text()).toContain('repo 1');
+    expect(wrapped.render().text()).toContain('repo 2');
   });
 });
