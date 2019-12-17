@@ -35,9 +35,13 @@ describe('CommentList component', () => {
     );
   });
 
-  it('creates one FlatList item per comment', () => {
+  it('create comment item based in data', () => {
+    // console.log(wrapped.render().text()); // This return only the text, independ quantity render component
+
     expect(wrapped.find('[testID="comment-list-item-1"]').text()).toEqual(
       'Comment 2',
     );
+    expect(wrapped.render().text()).toContain('Comment 1');
+    expect(wrapped.render().text()).toContain('Comment 2');
   });
 });
