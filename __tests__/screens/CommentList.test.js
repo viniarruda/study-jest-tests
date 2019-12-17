@@ -36,7 +36,7 @@ describe('CommentList component', () => {
   });
 
   it('create comment item based in data', () => {
-    // console.log(wrapped.render().text()); // This return only the text, independ quantity render component
+    //  console.log(wrapped.render().text()); // This return only the text, independ quantity render component
 
     expect(wrapped.find('[testID="comment-list-item-1"]').text()).toEqual(
       'Comment 2',

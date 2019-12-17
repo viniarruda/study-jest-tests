@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {FlatList, View, Text} from 'react-native';
 
 const CommentItem = ({item}) => (
@@ -8,7 +8,9 @@ const CommentItem = ({item}) => (
   </View>
 );
 
-const CommentList = ({comments: {list}}) => {
+const CommentList = () => {
+  const {list} = useSelector(state => state.comments);
+
   const renderComments = () => (
     <FlatList
       testID="comment-list"
@@ -20,11 +22,9 @@ const CommentList = ({comments: {list}}) => {
     />
   );
 
-  return <View style={{flex: 1, width: 500}}>{renderComments()}</View>;
+  return (
+    <View style={{flex: 1, height: 200, width: 500}}>{renderComments()}</View>
+  );
 };
 
-const mapStateToProps = state => ({
-  comments: state.comments,
-});
-
-export default connect(mapStateToProps)(CommentList);
+export default CommentList;

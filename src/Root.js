@@ -1,10 +1,21 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import {createStore, applyMiddleware} from 'redux';
+
 import reducers from './store';
+import sagas from './store/sagas';
 
 export default ({children, initialState = {}}) => {
-  return (
-    <Provider store={createStore(reducers, initialState)}>{children}</Provider>
+  const sagaMiddleware = createSagaMiddleware();
+
+  const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(sagaMiddleware),
   );
+
+  sagaMiddleware.run(sagas);
+
+  return <Provider store={store}>{children}</Provider>;
 };

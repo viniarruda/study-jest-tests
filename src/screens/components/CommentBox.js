@@ -1,23 +1,25 @@
 import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {View, Text, TextInput, Button} from 'react-native';
-import {connect} from 'react-redux';
 import {saveComment} from '../../store/comments/actions';
 
 import CommentList from './CommentList';
 
-const CommentBox = ({comments, saveComment}) => {
+const CommentBox = () => {
   const [comment, setComment] = useState('');
+  const comments = useSelector(state => state.comments);
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    saveComment(comment);
+    dispatch(saveComment(comment));
 
     setComment('');
   };
 
   return (
-    <View testID="comment-box" style={{flex: 1, flexDirection: 'column'}}>
+    <View testID="comment-box" style={{height: 200}}>
       <Text>Comments</Text>
       <TextInput
         testID="comment-box-textinput"
@@ -33,13 +35,4 @@ const CommentBox = ({comments, saveComment}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  comments: state.comments,
-});
-
-export default connect(
-  mapStateToProps,
-  {
-    saveComment,
-  },
-)(CommentBox);
+export default CommentBox;
