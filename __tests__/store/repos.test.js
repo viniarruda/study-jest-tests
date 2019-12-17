@@ -5,7 +5,7 @@ import commentsReducer from '../../src/store/comments/reducers';
 import {SAVE_COMMENT} from '../../src/store/comments/action-types';
 
 import Root from '../../src/Root';
-import CommentBox from '../../src/screens/components/CommentBox';
+import ReposBox from '../../src/screens/Home/components/ReposBox';
 
 describe('Implementation test redux', () => {
   let wrapped;
@@ -13,7 +13,7 @@ describe('Implementation test redux', () => {
   beforeEach(() => {
     wrapped = mount(
       <Root>
-        <CommentBox />
+        <ReposBox />
       </Root>,
     );
   });

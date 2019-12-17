@@ -1,6 +1,6 @@
 import {all, call, takeEvery} from 'redux-saga/effects';
 import {LIST_REQUESTED} from './action-types';
-import {fetchComments} from '../../providers/comments.provider';
+import {fetchComments} from '../../providers/repos.provider';
 
 function* loadComments() {
   yield call(fetchComments);

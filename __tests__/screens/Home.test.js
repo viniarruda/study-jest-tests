@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import CommentBox from '../../src/screens/components/CommentBox';
+import ReposBox from '../../src/screens/Home/components/ReposBox';
 import Root from '../../src/Root';
 
 describe('Unit test with CommentBox', () => {
@@ -10,7 +10,7 @@ describe('Unit test with CommentBox', () => {
   beforeEach(() => {
     wrapped = mount(
       <Root>
-        <CommentBox />
+        <ReposBox />
       </Root>,
     );
     debugger;

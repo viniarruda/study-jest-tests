@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 // import TestRenderer from 'react-test-renderer';
 
-import CommentList from '../../src/screens/components/CommentList';
+import CommentList from '../../src/screens/Home/components/ReposList';
 import Root from '../../src/Root';
 
 // function findById(tree, testID) {
@@ -38,7 +38,7 @@ describe('CommentList component', () => {
   it('create comment item based in data', () => {
     //  console.log(wrapped.render().text()); // This return only the text, independ quantity render component
 
-    expect(wrapped.find('[testID="comment-list-item-1"]').text()).toEqual(
+    expect(wrapped.find('[testID="repos-list-item-1"]').text()).toEqual(
       'Comment 2',
     );
     expect(wrapped.render().text()).toContain('Comment 1');
