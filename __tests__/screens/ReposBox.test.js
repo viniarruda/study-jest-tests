@@ -13,7 +13,7 @@ describe('Unit test with CommentBox', () => {
         <ReposBox />
       </Root>,
     );
-    debugger;
+    //    debugger;
   });
 
   afterEach(() => {
